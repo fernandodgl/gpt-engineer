@@ -1,5 +1,11 @@
-
+import os
 import openai
+import dotenv
+
+
+if not os.getenv("OPENAI_API_KEY") and os.path.exists(".env"):
+    dotenv.load_dotenv()
+    openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 class AI:
